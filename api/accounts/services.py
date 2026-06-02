@@ -23,6 +23,7 @@ def login_user(username, password):
         if verify_password(password, user.password, user.salt, pepper=user_pepper):
 
             # If user's pepper version is outdated, upgrade it
+            # If user's pepper is outdated, upgrade to latest version
             if user.pepper_version < settings.LATEST_PEPPER_VERSION:
                 new_version = settings.LATEST_PEPPER_VERSION
 
